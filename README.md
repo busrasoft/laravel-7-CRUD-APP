@@ -21,11 +21,11 @@
 - database\migrations\2020_05_05_135004_create_contacts_table.php
 -  Schema::create('contacts', function (Blueprint $table) {
 -            $table->id();
--            $table->string('name');
--            $table->string('email');
--            $table->string('phone');
--            $table->timestamps();
--        });
+           $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->timestamps();
+        });
 - php artisan migrate
 - 
 - 
