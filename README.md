@@ -19,7 +19,7 @@
 # 3) Make model & migration
 - php artisan make:model Contact -m
 - database\migrations\2020_05_05_135004_create_contacts_table.php
-  Schema::create('contacts', function (Blueprint $table) {
+-  Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email');
