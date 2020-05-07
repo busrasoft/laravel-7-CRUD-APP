@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -13,7 +14,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $data = Contact::orderBy('id', 'desc')->paginate(10)->setPath('contacts');
+        return view('contacts.index', compact(['data']));
     }
 
     /**
@@ -23,7 +25,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        //
+        return view('contacts.create');
     }
 
     /**
@@ -34,7 +36,14 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+        ]);
+
+        Contact::create($request->all());
+        return redirect()->back()->with('success', 'Create Successfully');
     }
 
     /**
@@ -45,7 +54,8 @@ class ContactController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Contact::find($id);
+        return view('contacts.edit', compact(['data']));
     }
 
     /**
@@ -56,7 +66,8 @@ class ContactController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Contact::find($id);
+        return view('contacts.edit', compact(['data']));
     }
 
     /**
@@ -68,7 +79,13 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+        ]);
+        Contact::where('id', $id)->update($request->all());
+        return redirect()->back()->with('success', 'Update Successfully');
     }
 
     /**
@@ -79,6 +96,7 @@ class ContactController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Contact::where('id', $id)->delete();
+        return redirect()->back()->with('success', 'Delete Successfully');
     }
 }

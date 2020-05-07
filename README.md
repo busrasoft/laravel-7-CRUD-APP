@@ -32,7 +32,13 @@
 - 
 # 4) Make Controller
 - php artisan make:controller ContactController
-- 
-- 
-- 
-
+- I add CRUD fonctions
+# 5) Define Routes
+- \routes\web.php
+- Route::resource('contact', 'ContactController');
+# 6) Make Views
+- composer require laravelcollective/html
+- Create index.blade.php 
+- Create create.blade.php 
+- Create edit.blade.php 
+- Create index.blade.php 
