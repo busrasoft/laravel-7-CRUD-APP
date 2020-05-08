@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
 {!! Form::open(['action' =>'ContactController@store', 'method' => 'POST','files'=>true])!!}

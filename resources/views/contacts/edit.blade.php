@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 
 @section('content')
     {!! Form::open(['action' =>['ContactController@update',$data->id], 'method' => 'PUT','files'=>true])!!}
