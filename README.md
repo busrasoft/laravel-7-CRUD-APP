@@ -42,3 +42,14 @@
 - Create create.blade.php 
 - Create edit.blade.php 
 - Create index.blade.php 
+
+# Mail Send With Contact Us
+- adds route
+Route::get('contact-us', 'ContactUsController@index');
+Route::post('contact-us', 'ContactUsController@contactUs');
+
+- create mail model =  php artisan make:mail ContactUs
+- create controller =  php artisan make:controller ContactUsController
+- create email folder and 2 blade file = emails/contact-us.blade.php and emails/contactEmail.blade.php
+- php artisan config:cache
+ 

@@ -18,3 +18,8 @@ Route::get('/', function () {
 });
 
 Route::resource('contact', 'ContactController');
+
+
+Route::get('contact-us', 'ContactUsController@index');
+Route::post('contact-us', 'ContactUsController@contactUs')->name('contact');
+
