@@ -27,9 +27,9 @@
             $table->timestamps();
         });
 - php artisan migrate
-- 
-- 
-- 
+- \7_CRUD_APP\app\Contact.php
+- protected $fillable = ['name', 'email', 'phone'];
+
 # 4) Make Controller
 - php artisan make:controller ContactController
 - I add CRUD fonctions
